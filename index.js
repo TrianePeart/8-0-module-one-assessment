@@ -30,12 +30,7 @@ const exampleMovies = require("./movies");
     ];
  */
 function getAllMovieTitles(movies) {
-  /**let movie = []
-  for (movie of movies){
-   (movie.push(movie.title)){
-    return movie;
-    }
-  }*/
+
   let movie = []; 
 
   for (let i = 0; i < movies.length; i++) {
@@ -128,7 +123,6 @@ function countByRating(movies) {
     };
  */
 function findById(movies,id) {
- // Awe yall gave us a freebee MVP I needed this one!
   for (let movie of movies){
     if (movie.imdbID === id){
       return movie 
