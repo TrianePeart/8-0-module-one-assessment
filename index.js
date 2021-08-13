@@ -78,9 +78,16 @@ function getHighestMetascore(movies) {
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {
-  
-}
+function getAverageIMDBRating(movies) {
+  let ratings = 0
+  for (let movie of movies){
+    ratings += Number(movie.imdbRating)
+  }if (movies.length === 0){
+    return ratings
+  }
+   let total = ratings/movies.length
+   return total 
+  }
 
 /**
  * countByRating()
@@ -93,16 +100,18 @@ function getAverageIMDBRating() {
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {
-  /**let ratings = {}
-  for (let movie of movies){
-    if (Object.key(ratings).includes(movie.rated)){
-      ratings[movie.rated] += 1
-    }
-   ratings[movie.rated] +=1
+function countByRating(movies) {
+  let ratings = {}
+
+  for (let i = 0; i < movies.length; i++){
+    if(ratings[movies[i].rated]){
+    ratings[movies[i].rated] += 1
   }
-  return ratings*/
-}
+    else { ratings[movies[i].rated] = 1
+  }
+  }
+  return ratings
+} 
 
 /**
  * findById()
@@ -118,7 +127,17 @@ function countByRating() {
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies,id) {
+ // Awe yall gave us a freebee MVP I needed this one!
+  for (let movie of movies){
+    if (movie.imdbID === id){
+      return movie 
+    }
+  } if (movies.imdbID !== id){
+    return null 
+  }
+}
+
 
 /**
  * filterByGenre()
@@ -140,7 +159,18 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let genres = []
+  for (let movie of movies){
+    if (movies.length === 0){
+    return genres
+    }
+    if (movie.genre.toLowerCase().includes(genre.toLowerCase())){
+      genres.push(movie)
+    }
+  } 
+  return genres 
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -164,7 +194,15 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies,year) {
+  let releaseDate = []
+  for (let movie of movies){
+    if (movie.released.split(' ')[2] <= year){
+      releaseDate.push(movie)
+    }
+  }
+  return releaseDate
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -177,7 +215,10 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie() {
+  let boxOfficeHit = {}
+  
+}
 
 // Do not change anything below this line.
 module.exports = {
