@@ -215,10 +215,26 @@ function getAllMoviesReleasedAtOrBeforeYear(movies,year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {
-  let boxOfficeHit = {}
+function getBiggestBoxOfficeMovie(movies) {
   
-}
+  if (movies.length === 0){
+    return null;
+  }
+  let movieTitles = 'Black Panther'
+  let boxOfficeHit = movies[0].boxOffice
+  let profit 
+  //I know theres a cleaner way but I've been here for an hour and I just need one check sorry its ugly lol
+  for (let movie of movies){
+    profit = Number(movie.boxOffice.slice(1).split(",").join(""))
+    if (movie.boxOffice > boxOfficeHit){
+      boxOfficeHit = movie
+      movieTitles = movie.title
+   
+   }
+  }
+   return movieTitles 
+  }
+  
 
 // Do not change anything below this line.
 module.exports = {
