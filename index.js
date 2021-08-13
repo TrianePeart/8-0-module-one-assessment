@@ -3,6 +3,7 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
+const movies = require("./movies");
 const exampleMovies = require("./movies");
 // Do not change the line above.
 
@@ -28,7 +29,22 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  /**let movie = []
+  for (movie of movies){
+   (movie.push(movie.title)){
+    return movie;
+    }
+  }*/
+  let movie = []; 
+
+  for (let i = 0; i < movies.length; i++) {
+    //honestly I wont be happy if this works
+   movie.push(movies[i].title);
+  }
+  return movie; // it worked... kinda upset. 
+ 
+}
 
 /**
  * getHighestMetascore()
@@ -41,7 +57,15 @@ function getAllMovieTitles() {}
  *  getHighestMetascore(movies);
  *  //> 96
  */
-function getHighestMetascore() {}
+function getHighestMetascore(movies) {
+  let highMetascore = 0
+  for (let movie of movies){
+    if (Number(movie.metascore) > highMetascore){
+      highMetascore = Number(movie.metascore)
+    }
+  }
+  return highMetascore
+}
 
 /**
  * getAverageIMDBRating()
@@ -54,7 +78,9 @@ function getHighestMetascore() {}
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
-function getAverageIMDBRating() {}
+function getAverageIMDBRating() {
+  
+}
 
 /**
  * countByRating()
@@ -67,7 +93,16 @@ function getAverageIMDBRating() {}
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating() {
+  /**let ratings = {}
+  for (let movie of movies){
+    if (Object.key(ratings).includes(movie.rated)){
+      ratings[movie.rated] += 1
+    }
+   ratings[movie.rated] +=1
+  }
+  return ratings*/
+}
 
 /**
  * findById()
